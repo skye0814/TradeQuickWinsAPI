@@ -22,6 +22,8 @@ namespace TradeQuickWinsAPI
                 x.UseSqlServer(builder.Configuration.GetConnectionString("TradeQuickWinsDBConnection")));
 
 
+
+
             #endregion Additional Injections
 
             var app = builder.Build();
@@ -32,7 +34,7 @@ namespace TradeQuickWinsAPI
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
-
+            //app.UseDeveloperExceptionPage();
             app.UseHttpsRedirection();
 
             app.UseAuthorization();

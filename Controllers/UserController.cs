@@ -17,7 +17,7 @@ namespace TradeQuickWinsAPI.Controllers
             _logger = logger;
         }
 
-        [HttpGet("get-current-user")]
+        [HttpGet("~/get-current-user")]
         public async Task<IActionResult> GetCurrentUser() 
         {
             try
@@ -30,8 +30,8 @@ namespace TradeQuickWinsAPI.Controllers
             }
         }
 
-        [Authorize(Roles = "Administrator")]
-        [HttpDelete("delete-user/{id}")]
+        //[Authorize(Roles = "Administrator")]
+        [HttpDelete("~/delete-user/{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
             try
@@ -44,7 +44,7 @@ namespace TradeQuickWinsAPI.Controllers
             }
         }
 
-        [HttpGet("get-users")]
+        [HttpGet("~/get-users")]
         public async Task<IActionResult> GetUsers()
         {
             try
@@ -57,7 +57,7 @@ namespace TradeQuickWinsAPI.Controllers
             }
         }
 
-        [HttpGet("get-user/{username}", Name = "get-user")]
+        [HttpGet("~/get-user/{username}", Name = "get-user")]
         public async Task<IActionResult> GetUser(string username)
         {
             try
@@ -70,7 +70,7 @@ namespace TradeQuickWinsAPI.Controllers
             }
         }
 
-        [HttpPost]
+        [HttpPost("~/login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
             try
@@ -88,7 +88,7 @@ namespace TradeQuickWinsAPI.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        [HttpPost]
+        [HttpPost("~/register")]
         public async Task<IActionResult> Register([FromBody] RegisterUserRequest user)
         {
             try
